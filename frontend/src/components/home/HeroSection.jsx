@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ClipboardText, UsersThree, Camera, CheckCircle } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
+import HeroProofStack from "@/components/home/HeroProofStack";
 import { HERO } from "@/constants/testIds";
 
 const fadeUp = {
@@ -9,13 +10,11 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-const gridIcons = [ClipboardText, UsersThree, Camera, CheckCircle];
-
 const HeroSection = () => {
   return (
     <section
       data-testid={HERO.section}
-      className="border-b border-slate-200 bg-white"
+      className="relative overflow-hidden border-b border-slate-200 bg-white"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-5 lg:gap-8 lg:px-8 lg:py-24">
         <motion.div
@@ -25,7 +24,7 @@ const HeroSection = () => {
           className="lg:col-span-3"
         >
           <p className="mb-4 inline-flex items-center rounded-md border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
-            India-first construction proof platform
+            Geography-aware construction proof platform
           </p>
           <h1
             data-testid={HERO.headline}
@@ -40,8 +39,8 @@ const HeroSection = () => {
           >
             Connect contractor readiness, worker eligibility, field evidence,
             approval workflows, audit trails, handover readiness, and billing
-            readiness in one India-first construction operations proof
-            platform.
+            readiness in one geography-aware construction operations proof
+            platform for global construction teams.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -66,32 +65,9 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          transition={{ delay: 0.15 }}
-          className="lg:col-span-2"
-        >
-          <div className="grid h-full grid-cols-2 gap-4 rounded-lg border border-slate-200 bg-zinc-50 p-6">
-            {[
-              { label: "Contractor Readiness", Icon: gridIcons[0] },
-              { label: "Worker Eligibility", Icon: gridIcons[1] },
-              { label: "Site Evidence", Icon: gridIcons[2] },
-              { label: "Approval Proof", Icon: gridIcons[3] },
-            ].map(({ label, Icon }) => (
-              <div
-                key={label}
-                className="flex flex-col justify-between rounded-md border border-slate-200 bg-white p-4"
-              >
-                <Icon size={26} className="text-amber-600" />
-                <span className="mt-3 text-sm font-semibold text-slate-800">
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="lg:col-span-2">
+          <HeroProofStack />
+        </div>
       </div>
     </section>
   );

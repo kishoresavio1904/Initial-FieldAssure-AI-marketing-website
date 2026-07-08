@@ -83,16 +83,16 @@ const RolesSection = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           variants={container}
-          className="grid grid-cols-1 gap-5 md:grid-cols-3"
+          className="grid grid-cols-1 gap-5 md:grid-cols-3 md:items-stretch"
         >
           {ROLE_CARDS.map(({ title, desc, Icon, span }, i) => (
             <motion.div
               key={title}
               variants={item}
               data-testid={ROLES.card(i)}
-              className={`rounded-lg border border-slate-200 bg-zinc-50 p-6 ${span}`}
+              className={`group flex flex-col rounded-lg border border-slate-200 bg-zinc-50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-900/5 ${span}`}
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-amber-50 text-amber-600">
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600 ring-1 ring-amber-200/60 transition-transform duration-300 group-hover:scale-105">
                 <Icon size={22} weight="duotone" />
               </span>
               <h3 className="mt-4 font-heading text-base font-bold text-slate-900">

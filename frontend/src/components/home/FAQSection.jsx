@@ -16,8 +16,8 @@ const FAQS = [
     a: "No. It supports teams by giving them better proof, cleaner workflows, and clearer visibility.",
   },
   {
-    q: "Is this built for India?",
-    a: "Yes. FieldAssure AI is India-first, designed around the realities of contractors, workers, site evidence, approvals, and project handovers.",
+    q: "Is FieldAssure AI built only for one country?",
+    a: "No. FieldAssure AI is geography-aware and adapts to the contractor, worker, site evidence, approval, and handover realities of different construction markets globally.",
   },
   {
     q: "Can we use it across multiple sites?",

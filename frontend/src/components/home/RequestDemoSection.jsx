@@ -60,8 +60,9 @@ const RequestDemoSection = () => {
   };
 
   return (
-    <section id="request-demo" data-testid={DEMO_FORM.section} className="bg-zinc-50">
-      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section id="request-demo" data-testid={DEMO_FORM.section} className="relative overflow-hidden bg-gradient-to-b from-amber-50/60 via-zinc-50 to-zinc-50">
+      <div className="absolute left-1/2 top-0 h-72 w-[520px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-amber-300/20 blur-3xl" />
+      <div className="relative mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mb-10 text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-amber-600">
             Request a demo
@@ -71,7 +72,7 @@ const RequestDemoSection = () => {
           </h2>
         </div>
 
-        <div className="rounded-lg border border-slate-200 bg-white p-6 sm:p-8">
+        <div className="rounded-xl border border-amber-100 bg-white p-6 shadow-[0_24px_60px_-20px_rgba(217,119,6,0.2)] sm:p-8">
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div
@@ -148,7 +149,7 @@ const RequestDemoSection = () => {
                     onChange={handleChange("phone")}
                     data-testid={DEMO_FORM.fieldPhone}
                     className="focus-visible:ring-2 focus-visible:ring-amber-600"
-                    placeholder="+91 00000 00000"
+                    placeholder="Your phone number"
                   />
                 </div>
 

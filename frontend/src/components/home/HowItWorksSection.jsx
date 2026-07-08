@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "@phosphor-icons/react";
 import { HOW_IT_WORKS } from "@/constants/testIds";
 
 const STEPS = [
@@ -21,8 +22,15 @@ const item = {
 
 const HowItWorksSection = () => {
   return (
-    <section data-testid={HOW_IT_WORKS.section} className="bg-zinc-50">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section data-testid={HOW_IT_WORKS.section} className="relative overflow-hidden bg-zinc-50">
+      <div
+        className="absolute inset-0 bg-grid-faint opacity-40"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mb-12 max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-amber-600">
             How it works
@@ -40,18 +48,23 @@ const HowItWorksSection = () => {
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5"
         >
           {STEPS.map((step, i) => (
-            <motion.div
-              key={step}
-              variants={item}
-              data-testid={HOW_IT_WORKS.step(i + 1)}
-              className="relative rounded-lg border border-slate-200 bg-white p-5"
-            >
-              <span className="font-heading text-2xl font-extrabold text-amber-600">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-slate-800">
-                {step}
-              </p>
+            <motion.div key={step} variants={item} className="relative flex items-stretch">
+              <div
+                data-testid={HOW_IT_WORKS.step(i + 1)}
+                className="flex-1 rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-900/5"
+              >
+                <span className="font-heading text-2xl font-extrabold text-amber-600">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-3 text-sm font-medium leading-relaxed text-slate-800">
+                  {step}
+                </p>
+              </div>
+              {i < STEPS.length - 1 && (
+                <div className="absolute right-[-22px] top-1/2 z-10 hidden -translate-y-1/2 lg:block">
+                  <ArrowRight size={18} className="text-amber-400" />
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>

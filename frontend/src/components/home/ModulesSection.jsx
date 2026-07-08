@@ -50,16 +50,16 @@ const ModulesSection = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           variants={container}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch"
         >
           {MODULE_CARDS.map(({ title, Icon }, i) => (
             <motion.div
               key={title}
               variants={item}
               data-testid={MODULES.card(i)}
-              className="rounded-lg border border-slate-200 bg-white p-6 transition-colors hover:border-amber-300"
+              className="group flex flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-900/5"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-amber-50 text-amber-600">
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600 ring-1 ring-amber-200/60 transition-transform duration-300 group-hover:scale-105">
                 <Icon size={22} weight="duotone" />
               </span>
               <h3 className="mt-4 font-heading text-sm font-bold text-slate-900">

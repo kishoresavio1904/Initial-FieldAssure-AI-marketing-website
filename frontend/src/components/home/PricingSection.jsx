@@ -56,21 +56,21 @@ const PricingSection = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={container}
-          className="grid grid-cols-1 gap-6 md:grid-cols-3"
+          className="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch"
         >
           {TIERS.map((tier) => (
             <motion.div
               key={tier.key}
               variants={item}
               data-testid={PRICING.card(tier.key)}
-              className={`relative flex flex-col rounded-lg border p-6 ${
+              className={`relative flex flex-col rounded-lg border p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                 tier.highlighted
-                  ? "border-amber-500 bg-amber-50/40 shadow-sm"
-                  : "border-slate-200 bg-zinc-50"
+                  ? "border-amber-500 bg-gradient-to-b from-amber-50/70 to-white shadow-md hover:shadow-amber-900/10"
+                  : "border-slate-200 bg-zinc-50 hover:border-amber-300 hover:shadow-amber-900/5"
               }`}
             >
               {tier.highlighted && (
-                <span className="absolute -top-3 left-6 rounded-md bg-amber-600 px-3 py-1 text-xs font-semibold text-white">
+                <span className="absolute -top-3 left-6 rounded-md bg-amber-600 px-3 py-1 text-xs font-semibold text-white shadow-sm">
                   Most Popular
                 </span>
               )}
@@ -87,7 +87,7 @@ const PricingSection = () => {
               <Button
                 asChild
                 data-testid={PRICING.ctaRequestDemo(tier.key)}
-                className={`mt-6 w-full rounded-md font-semibold ${
+                className={`mt-6 w-full rounded-md font-semibold transition-transform duration-200 ${
                   tier.highlighted
                     ? "bg-amber-600 text-white hover:bg-amber-700"
                     : "bg-slate-900 text-white hover:bg-slate-800"

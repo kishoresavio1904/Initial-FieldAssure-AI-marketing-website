@@ -23,7 +23,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-3 max-w-xs text-sm text-slate-600">
-              India-first construction operational proof platform.
+              Geography-aware construction operational proof platform for global construction teams.
             </p>
           </div>
 
