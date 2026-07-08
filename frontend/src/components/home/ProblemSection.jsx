@@ -6,10 +6,10 @@ const QUESTIONS = [
   "Who worked on site?",
   "Was the contractor ready?",
   "Were workers eligible?",
-  "What evidence was submitted?",
+  "What proof was submitted?",
   "Who checked it?",
   "Who approved it?",
-  "What is blocking handover, audit, or billing?",
+  "What is blocking handover, audit, or payment?",
 ];
 
 const container = {
@@ -32,12 +32,14 @@ const ProblemSection = () => {
               The problem
             </p>
             <h2 className="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Site proof is scattered everywhere except where it's needed.
+              Your field proof is everywhere. Your decisions shouldn't be.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-slate-600 md:text-lg">
-              Construction teams lose time and money because site proof is
-              scattered across WhatsApp, Excel, paper files, photos,
-              contractor submissions, and verbal follow-ups.
+              Construction teams still chase field proof across WhatsApp,
+              Excel, paper files, photos, contractor submissions, and verbal
+              follow-ups. FieldAssure AI brings the evidence, checks,
+              approvals, and blockers into one place so teams know what is
+              ready, what is missing, and who needs to act.
             </p>
           </div>
 

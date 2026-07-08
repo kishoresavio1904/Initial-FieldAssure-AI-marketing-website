@@ -42,21 +42,45 @@ const initialForm = {
   message: "",
 };
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const validateForm = (form) => {
+  const errors = {};
+  if (!form.fullName.trim()) errors.fullName = "Full name is required.";
+  if (!form.companyName.trim()) errors.companyName = "Company name is required.";
+  if (!form.workEmail.trim()) {
+    errors.workEmail = "Work email is required.";
+  } else if (!EMAIL_REGEX.test(form.workEmail.trim())) {
+    errors.workEmail = "Enter a valid email address.";
+  }
+  if (!form.phone.trim()) errors.phone = "Phone number is required.";
+  if (!form.role) errors.role = "Please select a role.";
+  if (!form.projectSize) errors.projectSize = "Please select a project size.";
+  return errors;
+};
+
 const RequestDemoSection = () => {
   const [form, setForm] = useState(initialForm);
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
+    setErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
   };
 
   const handleSelectChange = (field) => (value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const nextErrors = validateForm(form);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length === 0) {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -97,69 +121,109 @@ const RequestDemoSection = () => {
                 transition={{ duration: 0.25 }}
                 data-testid={DEMO_FORM.form}
                 onSubmit={handleSubmit}
+                noValidate
                 className="grid grid-cols-1 gap-5 sm:grid-cols-2"
               >
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="fullName">Full name</Label>
+                  <Label htmlFor="fullName">
+                    Full name <span className="text-amber-600">*</span>
+                  </Label>
                   <Input
                     id="fullName"
-                    required
                     value={form.fullName}
                     onChange={handleChange("fullName")}
                     data-testid={DEMO_FORM.fieldName}
-                    className="focus-visible:ring-2 focus-visible:ring-amber-600"
+                    aria-invalid={Boolean(errors.fullName)}
+                    className={`focus-visible:ring-2 focus-visible:ring-amber-600 ${
+                      errors.fullName ? "border-red-400" : ""
+                    }`}
                     placeholder="Your full name"
                   />
+                  {errors.fullName && (
+                    <p data-testid={DEMO_FORM.errorName} className="text-xs font-medium text-red-600">
+                      {errors.fullName}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="companyName">Company name</Label>
+                  <Label htmlFor="companyName">
+                    Company name <span className="text-amber-600">*</span>
+                  </Label>
                   <Input
                     id="companyName"
-                    required
                     value={form.companyName}
                     onChange={handleChange("companyName")}
                     data-testid={DEMO_FORM.fieldCompany}
-                    className="focus-visible:ring-2 focus-visible:ring-amber-600"
+                    aria-invalid={Boolean(errors.companyName)}
+                    className={`focus-visible:ring-2 focus-visible:ring-amber-600 ${
+                      errors.companyName ? "border-red-400" : ""
+                    }`}
                     placeholder="Your company"
                   />
+                  {errors.companyName && (
+                    <p data-testid={DEMO_FORM.errorCompany} className="text-xs font-medium text-red-600">
+                      {errors.companyName}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="workEmail">Work email</Label>
+                  <Label htmlFor="workEmail">
+                    Work email <span className="text-amber-600">*</span>
+                  </Label>
                   <Input
                     id="workEmail"
                     type="email"
-                    required
                     value={form.workEmail}
                     onChange={handleChange("workEmail")}
                     data-testid={DEMO_FORM.fieldEmail}
-                    className="focus-visible:ring-2 focus-visible:ring-amber-600"
+                    aria-invalid={Boolean(errors.workEmail)}
+                    className={`focus-visible:ring-2 focus-visible:ring-amber-600 ${
+                      errors.workEmail ? "border-red-400" : ""
+                    }`}
                     placeholder="you@company.com"
                   />
+                  {errors.workEmail && (
+                    <p data-testid={DEMO_FORM.errorEmail} className="text-xs font-medium text-red-600">
+                      {errors.workEmail}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="phone">Phone number</Label>
+                  <Label htmlFor="phone">
+                    Phone number <span className="text-amber-600">*</span>
+                  </Label>
                   <Input
                     id="phone"
                     type="tel"
-                    required
                     value={form.phone}
                     onChange={handleChange("phone")}
                     data-testid={DEMO_FORM.fieldPhone}
-                    className="focus-visible:ring-2 focus-visible:ring-amber-600"
+                    aria-invalid={Boolean(errors.phone)}
+                    className={`focus-visible:ring-2 focus-visible:ring-amber-600 ${
+                      errors.phone ? "border-red-400" : ""
+                    }`}
                     placeholder="Your phone number"
                   />
+                  {errors.phone && (
+                    <p data-testid={DEMO_FORM.errorPhone} className="text-xs font-medium text-red-600">
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="role">Role</Label>
-                  <Select value={form.role} onValueChange={handleSelectChange("role")} required>
+                  <Label htmlFor="role">
+                    Role <span className="text-amber-600">*</span>
+                  </Label>
+                  <Select value={form.role} onValueChange={handleSelectChange("role")}>
                     <SelectTrigger
                       id="role"
                       data-testid={DEMO_FORM.fieldRole}
-                      className="focus:ring-2 focus:ring-amber-600"
+                      aria-invalid={Boolean(errors.role)}
+                      className={`focus:ring-2 focus:ring-amber-600 ${errors.role ? "border-red-400" : ""}`}
                     >
                       <SelectValue placeholder="Select your role" />
                     </SelectTrigger>
@@ -171,19 +235,25 @@ const RequestDemoSection = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {errors.role && (
+                    <p data-testid={DEMO_FORM.errorRole} className="text-xs font-medium text-red-600">
+                      {errors.role}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="projectSize">Project size</Label>
-                  <Select
-                    value={form.projectSize}
-                    onValueChange={handleSelectChange("projectSize")}
-                    required
-                  >
+                  <Label htmlFor="projectSize">
+                    Project size <span className="text-amber-600">*</span>
+                  </Label>
+                  <Select value={form.projectSize} onValueChange={handleSelectChange("projectSize")}>
                     <SelectTrigger
                       id="projectSize"
                       data-testid={DEMO_FORM.fieldProjectSize}
-                      className="focus:ring-2 focus:ring-amber-600"
+                      aria-invalid={Boolean(errors.projectSize)}
+                      className={`focus:ring-2 focus:ring-amber-600 ${
+                        errors.projectSize ? "border-red-400" : ""
+                      }`}
                     >
                       <SelectValue placeholder="Select project size" />
                     </SelectTrigger>
@@ -195,10 +265,15 @@ const RequestDemoSection = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {errors.projectSize && (
+                    <p data-testid={DEMO_FORM.errorProjectSize} className="text-xs font-medium text-red-600">
+                      {errors.projectSize}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2 sm:col-span-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">Message (optional)</Label>
                   <Textarea
                     id="message"
                     value={form.message}

@@ -16,8 +16,8 @@ const FAQS = [
     a: "No. It supports teams by giving them better proof, cleaner workflows, and clearer visibility.",
   },
   {
-    q: "Is FieldAssure AI built only for one country?",
-    a: "No. FieldAssure AI is geography-aware and adapts to the contractor, worker, site evidence, approval, and handover realities of different construction markets globally.",
+    q: "Can FieldAssure AI work across different countries or project types?",
+    a: "Yes. FieldAssure AI is designed for global construction teams and can adapt to local field, contractor, worker documentation, approval, handover, and billing-readiness requirements. It supports operational visibility and evidence tracking, but does not provide legal or compliance guarantees.",
   },
   {
     q: "Can we use it across multiple sites?",

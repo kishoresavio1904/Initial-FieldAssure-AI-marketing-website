@@ -3,7 +3,7 @@ import ProblemSection from "@/components/home/ProblemSection";
 import ProductExplainSection from "@/components/home/ProductExplainSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import RolesSection from "@/components/home/RolesSection";
-import ModulesSection from "@/components/home/ModulesSection";
+import WhatBreaksSection from "@/components/home/WhatBreaksSection";
 import PricingSection from "@/components/home/PricingSection";
 import RequestDemoSection from "@/components/home/RequestDemoSection";
 import FAQSection from "@/components/home/FAQSection";
@@ -16,7 +16,7 @@ const Home = () => {
       <ProductExplainSection />
       <HowItWorksSection />
       <RolesSection />
-      <ModulesSection />
+      <WhatBreaksSection />
       <PricingSection />
       <RequestDemoSection />
       <FAQSection />

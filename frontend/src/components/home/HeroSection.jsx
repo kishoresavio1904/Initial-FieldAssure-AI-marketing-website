@@ -24,23 +24,29 @@ const HeroSection = () => {
           className="lg:col-span-3"
         >
           <p className="mb-4 inline-flex items-center rounded-md border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
-            Geography-aware construction proof platform
+            Field proof, approvals, and readiness — connected.
           </p>
           <h1
             data-testid={HERO.headline}
             className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
           >
-            FieldAssure AI helps construction teams prove site readiness
-            before handover, audit, or payment.
+            Field proof. Approval trails. Readiness you can trust.
           </h1>
           <p
             data-testid={HERO.subheadline}
             className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg"
           >
-            Connect contractor readiness, worker eligibility, field evidence,
-            approval workflows, audit trails, handover readiness, and billing
-            readiness in one geography-aware construction operations proof
-            platform for global construction teams.
+            FieldAssure AI helps construction teams connect contractor
+            readiness, worker eligibility, field evidence, approvals, audit
+            trails, handover blockers, and billing readiness in one clear
+            operational proof trail.
+          </p>
+          <p
+            data-testid={HERO.supportingLine}
+            className="mt-3 max-w-xl text-sm font-medium text-slate-500"
+          >
+            Built for global construction teams. Adaptable to local field,
+            contractor, and documentation requirements.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button

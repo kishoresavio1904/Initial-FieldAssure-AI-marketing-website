@@ -4,6 +4,7 @@ export const HERO = {
   section: 'hero-section',
   headline: 'hero-headline',
   subheadline: 'hero-subheadline',
+  supportingLine: 'hero-supporting-line',
   ctaRequestDemo: 'hero-cta-request-demo-btn',
   ctaViewProduct: 'hero-cta-view-product-btn',
 };
@@ -27,9 +28,13 @@ export const ROLES = {
   card: (i) => `roles-card-${i}`,
 };
 
-export const MODULES = {
-  section: 'modules-section',
-  card: (i) => `modules-card-${i}`,
+export const WHAT_BREAKS = {
+  section: 'what-breaks-section',
+  tab: (i) => `what-breaks-tab-${i}`,
+  accordionItem: (i) => `what-breaks-accordion-item-${i}`,
+  detailCard: 'what-breaks-detail-card',
+  detailProblem: 'what-breaks-detail-problem',
+  detailFix: 'what-breaks-detail-fix',
 };
 
 export const PRICING = {
@@ -50,6 +55,12 @@ export const DEMO_FORM = {
   fieldMessage: 'request-demo-textarea-message',
   submitBtn: 'request-demo-submit-btn',
   successMessage: 'request-demo-success-message',
+  errorName: 'request-demo-error-name',
+  errorCompany: 'request-demo-error-company',
+  errorEmail: 'request-demo-error-email',
+  errorPhone: 'request-demo-error-phone',
+  errorRole: 'request-demo-error-role',
+  errorProjectSize: 'request-demo-error-project-size',
 };
 
 export const FAQ = {
