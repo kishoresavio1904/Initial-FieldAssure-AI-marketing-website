@@ -56,6 +56,26 @@ construction markets (geography-aware positioning, updated in W1.2).
   amber-600 accent, no photos anywhere (Phosphor icons only).
 - Tested end-to-end by testing_agent_v3: 100% pass, zero bugs found (iteration_1.json).
 
+### W1.3 — Copy & Interaction Upgrade (Feb 2026)
+- Copy overhaul: replaced "site proof" with "field proof" everywhere; removed the
+  "geography-aware" tagline in favor of simpler business language. New Hero badge/
+  headline/subheadline + a new supporting line ("Built for global construction teams.
+  Adaptable to local field, contractor, and documentation requirements."). Problem
+  section heading/paragraph/questions updated ("What proof was submitted?", "...or
+  payment?"). Footer tagline and FAQ Q3 updated to match (global, plain-language
+  positioning; no India-first/geography-aware wording anywhere).
+- Replaced the plain Modules grid with a new interactive `WhatBreaksSection.jsx`:
+  "What breaks today — and how FieldAssure fixes it" — 6 items (Field Evidence,
+  Contractor Readiness, Approvals, Audit Trail, Readiness Blockers, Billing Proof),
+  each with "Problem today" / "FieldAssure fix" copy. Desktop: clickable tabs (amber
+  active state) + elevated crossfading detail card. Mobile: stacked accordion.
+- Request Demo form: added proper client-side mandatory validation (Full name,
+  Company name, Work email [regex], Phone number, Role, Project size all required;
+  Message stays optional). Errors show inline per field; success message only shows
+  once all mandatory fields are valid. Same exact success copy retained, still fully
+  client-side (no backend/CRM wiring).
+- Tested end-to-end by testing_agent_v3: 100% pass, zero bugs found (iteration_3.json).
+
 ### W1.2 — Visual Upgrade (Feb 2026)
 - New premium "Operational Proof Stack" hero visual (`HeroProofStack.jsx`): central
   elevated "FieldAssure AI" card + 6 floating labeled proof-point mini-cards
