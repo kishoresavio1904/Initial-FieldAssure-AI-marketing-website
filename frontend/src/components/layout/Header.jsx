@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { ShieldCheck, List } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { HEADER } from "@/constants/testIds";
 
 const NAV_LINKS = [
@@ -67,6 +67,10 @@ const Header = () => {
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="w-72 border-slate-200 bg-white p-0">
+            <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+            <SheetDescription className="sr-only">
+              Links to Home, Product, Use Cases, Pricing, and Request Demo pages.
+            </SheetDescription>
             <div className="flex h-16 items-center border-b border-slate-200 px-5">
               <span className="font-heading text-base font-bold text-slate-900">Menu</span>
             </div>

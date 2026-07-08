@@ -18,7 +18,8 @@ compliance-guarantee claims, no "AI replaces safety teams" claims, no heavy anim
 
 ## Target Audience
 Construction company owners, Project Directors, COOs, HSE Heads, QA/QC Heads, Project
-Managers, Compliance teams, Finance Controllers, Contractor Management teams (India-first).
+Managers, Compliance teams, Finance Controllers, Contractor Management teams — global
+construction markets (geography-aware positioning, updated in W1.2).
 
 ## User Choices Captured
 - Visual style: icon/illustration only, NO photos or stock images
@@ -54,6 +55,28 @@ Managers, Compliance teams, Finance Controllers, Contractor Management teams (In
 - Fonts wired via Google Fonts (Manrope + IBM Plex Sans), light zinc-50/white theme,
   amber-600 accent, no photos anywhere (Phosphor icons only).
 - Tested end-to-end by testing_agent_v3: 100% pass, zero bugs found (iteration_1.json).
+
+### W1.2 — Visual Upgrade (Feb 2026)
+- New premium "Operational Proof Stack" hero visual (`HeroProofStack.jsx`): central
+  elevated "FieldAssure AI" card + 6 floating labeled proof-point mini-cards
+  (Contractor Ready, Worker Eligible, Evidence Captured, Approval Pending, Handover
+  Blocker, Billing Readiness) over a subtle CSS-only perspective grid + amber glow.
+  Desktop/tablet uses absolute-positioned floating cards with slow CSS float
+  animation (prefers-reduced-motion safe); mobile switches to a simplified static
+  2-column grid.
+- Card polish: hover lift + shadow/border-highlight added to Role, Module, and
+  Pricing cards (all `data-testid`s preserved, consistent card heights via flex).
+- How It Works: decorative arrow connectors between step cards on desktop + faint
+  background grid texture.
+- Request Demo (CTA) section: warmer gradient background + elevated form card shadow
+  (form fields/logic unchanged).
+- Positioning language migrated: removed all "India-first" / India-only claims;
+  now "geography-aware construction operational proof platform for global
+  construction teams" across Hero badge/subhead, Footer, FAQ Q3, About/Contact page.
+  Phone field placeholder de-localized (no country-specific code).
+- Fixed a minor pre-existing a11y warning (missing SheetTitle/Description on mobile
+  nav menu).
+- Tested end-to-end by testing_agent_v3: 100% pass, zero bugs found (iteration_2.json).
 
 ## Prioritized Backlog / Next Steps (P1/P2 — deferred from W1)
 - P1: Expand Product, Use Cases, Pricing, About/Contact into full detailed pages
