@@ -1,0 +1,67 @@
+{
+  "theme": "Light mode only. The platform targets construction B2B buyers (India-first) requiring a clean, authoritative, and reliable visual presence.",
+  "typography": {
+    "headings": "Manrope. Provides an engineered, precise, and highly reliable feel appropriate for construction tech. Do NOT use Inter.",
+    "body": "IBM Plex Sans. Technical, crisp, highly legible for dense B2B reading.",
+    "instructions": "Use font-bold or font-extrabold for key headings to establish authority. Apply tight letter spacing (tracking-tight) on large headings. Never center-align long paragraphs."
+  },
+  "colors": {
+    "background": "#FAFAFA (Zinc 50 / Off-white to prevent harsh glare)",
+    "surface": "#FFFFFF (Pure white for cards/bento boxes)",
+    "text_primary": "#0F172A (Deep Navy / Slate 900 for high-contrast readability without the deadness of pure black)",
+    "text_secondary": "#475569 (Slate 600 for subtext and descriptions)",
+    "accent": "#D97706 (Amber 600 - Muted, professional construction-tech accent)",
+    "accent_hover": "#B45309 (Amber 700)",
+    "border": "#E2E8F0 (Slate 200 - used extensively for structure)"
+  },
+  "visual_enhancers": {
+    "style": "Swiss Brutalist meets Enterprise SaaS. Focus on structural clarity, sharp 1px borders, and high typographic contrast. NO PHOTOS ALLOWED.",
+    "borders": "Use 1px solid borders (border-slate-200) to create a blueprint-like grid aesthetic. Sharp or slightly rounded corners (rounded-md).",
+    "shadows": "Minimalist. Use shadow-sm or purely flat design relying on borders for component separation. Do not use heavy or colored shadows.",
+    "icons": "Use @phosphor-icons/react. Use Regular or Duotone weights to act as technical illustrations and visual anchors since photography is strictly banned.",
+    "logo": "Text wordmark 'FieldAssure AI' (Manrope Bold) paired with a geometric icon like ShieldCheck or CheckSquare from Phosphor Icons in Amber-600."
+  },
+  "grids_and_layouts": {
+    "spacing": "Generous spacing. Use p-8 to p-12 inside major structural containers. gap-6 to gap-8 for grids.",
+    "hero": "Asymmetrical layout. Massive left-aligned typography (text-5xl to text-6xl max). The right side should feature a clean, technical grid of Phosphor icons or structural SVG lines to substitute for the lack of photography.",
+    "roles_grid": "7 cards: Use an asymmetrical Bento Grid (e.g., grid-cols-1 md:grid-cols-3) where some cards span 2 columns and others span 1 to create visual tension without relying on animations.",
+    "modules_grid": "8 cards: Symmetrical, high-density 4x2 grid (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4) with icon, title, and short description."
+  },
+  "motion": {
+    "rules": "SUBTLE ONLY. Trust is paramount. No 3D, no marquees, no masking.",
+    "interactions": "Crisp CSS hover states (slight background color shift, border color darkening). Simple Framer Motion staggered fade-ups on scroll (opacity: 0 to 1, y: 15 to 0 over 0.4s) for lists and grids."
+  },
+  "pages_and_components": {
+    "navigation": "Sticky header (bg-white/95 backdrop-blur border-b border-slate-200). Links: Product, Use Cases, Pricing, About, Contact. CTA: Request Demo (amber button).",
+    "home_sections": [
+      "Hero: Headline 'FieldAssure AI helps...', Subhead, Primary CTA (Request Demo), Secondary CTA (View Product)",
+      "Problem: 7 questions structured as a crisp vertical checklist with amber check/warning icons",
+      "Product Explanation: Text-driven value prop alongside an abstract icon-based workflow diagram",
+      "How it works: 5 steps formatted as connected horizontal nodes or a numbered vertical progression",
+      "Role-based Value: 7 role cards (Owners, PMs, HSE, QA/QC, Compliance, Finance, Contractors) in a bento layout",
+      "Modules Grid: 8 cards featuring technical iconography",
+      "Pricing Preview: 3 tiers (Starter, Project, Enterprise). Highlight 'Project' tier with an amber border and 'Most Popular' badge.",
+      "Request Demo: Static form with Name, Company, Email, Phone, Role, Project size, Message. Must have client-side validation and a success state replacing the form upon submission.",
+      "FAQ: 5 accordion items",
+      "Footer: Minimalist, columns for links, disclaimer, and copyright."
+    ],
+    "placeholder_pages": "Product, Use Cases, Pricing, Request Demo, About/Contact. Each features a simple, centered layout with an H1, short descriptive paragraph, and a CTA returning to Home or triggering the Demo form."
+  },
+  "accessibility_and_testing": {
+    "testing": "All interactive elements, links, forms, and accordion triggers MUST include a `data-testid` attribute (e.g., data-testid='hero-request-demo-btn').",
+    "forms": "Use highly visible focus rings (focus:ring-2 focus:ring-amber-600 focus:outline-none) for all inputs.",
+    "contrast": "Ensure the amber-600 accent color contains white or very dark navy text for optimal contrast ratio."
+  },
+  "tech_stack_instructions": {
+    "dependencies_to_add": "yarn add @phosphor-icons/react framer-motion lucide-react",
+    "components": "Use shadcn/ui primitives. Override default shadcn rounded corners to be sharper (rounded-sm or rounded-md) to fit the structural aesthetic.",
+    "environment": "React JS (.js files) + Tailwind CSS."
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "STRICTLY NO PHOTOS OR STOCK IMAGES. Rely entirely on typography, structural borders, and Phosphor/Lucide icons.",
+    "DO NOT default to generic centered layouts for content-heavy sections. Use left-alignment for B2B clarity.",
+    "Ensure the theme remains light mode with deep navy/charcoal text to evoke an engineering blueprint / enterprise software feel.",
+    "The 'Request Demo' form MUST function purely on the client side, hiding the form and displaying a styled success message upon submission.",
+    "Never use fully transparent header backgrounds; always ensure legibility with a solid or blurred light background."
+  ]
+}
